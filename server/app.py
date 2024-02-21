@@ -51,7 +51,7 @@ class Medias(Resource, SerializerMixin):
             return new_media.to_dict(), 201
         
         except IntegrityError:
-            return {'error': '422 Unprocessable Entity'}, 422
+            return {'error': 'Could not create media'}, 422
         
 
 class MediaById(Resource, SerializerMixin):
@@ -94,7 +94,7 @@ class Reviews(Resource, SerializerMixin):
             return review.to_dict(), 201
         
         except IntegrityError:
-            return {'error': '422 Unprocessable Entity'}, 422
+            return {'error': 'Could not create review'}, 422
 
 
 class ReviewById(Resource, SerializerMixin):
@@ -143,7 +143,7 @@ class Signup(Resource, SerializerMixin):
             return new_user.to_dict(), 201
         
         except IntegrityError:
-            return {'error': '422 Unprocessable Entity'}, 422
+            return {'error': 'Could not create user'}, 422
     
 
 class Login(Resource, SerializerMixin):
@@ -160,7 +160,7 @@ class Login(Resource, SerializerMixin):
                 session['user_id'] = user.id
                 return user.to_dict(), 200
             else:
-                return {'error': 'incorrect password'}
+                return {'error': 'Incorrect Password'}
         return {'error': 'User not registered'}, 400
     
 
@@ -171,14 +171,14 @@ class CheckSession(Resource, SerializerMixin):
         if id:
             user = User.query.filter_by(id=id).first()
             return user.to_dict(), 200
-        return {}, 401
+        return {'error': 'Not logged in'}, 401
 
 
 class Logout(Resource, SerializerMixin):
 
     def delete(self):
         session['user_id'] = None
-        return {'message': '204 No Content'}, 204
+        return {'message': 'Successfully logged out'}, 204
     
 api.add_resource(Home, '/')
 api.add_resource(Medias, '/api/medias')
