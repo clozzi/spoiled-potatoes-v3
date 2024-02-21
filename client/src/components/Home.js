@@ -8,9 +8,9 @@ function Home() {
         <>
         <h1>Home Page {user}</h1>
         {medias ? (
-            medias.map((media) => {
+            medias.map((media) => (
             <p>{media.title}</p>
-        })
+            ))
         ) : (
             <p>Nope</p>
         )}
