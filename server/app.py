@@ -181,14 +181,14 @@ class Logout(Resource, SerializerMixin):
         return {'message': '204 No Content'}, 204
     
 api.add_resource(Home, '/')
-api.add_resource(Medias, '/medias', endpoint='medias')
-api.add_resource(MediaById, '/medias/<int:id>', endpoint='medias/:id')
-api.add_resource(Reviews, '/reviews', endpoint='reviews')
-api.add_resource(ReviewById, '/reviews/<int:id>', endpoint='reviews/:id')
-api.add_resource(Signup, '/signup', endpoint='signup')
-api.add_resource(Login, '/login', endpoint='login')
-api.add_resource(CheckSession, '/check_session', endpoint='check_session')
-api.add_resource(Logout, '/logout', endpoint='logout')
+api.add_resource(Medias, '/api/medias')
+api.add_resource(MediaById, '/api/medias/<int:id>')
+api.add_resource(Reviews, '/api/reviews')
+api.add_resource(ReviewById, '/api/reviews/<int:id>')
+api.add_resource(Signup, '/api/signup')
+api.add_resource(Login, '/api/login')
+api.add_resource(CheckSession, '/api/check_session')
+api.add_resource(Logout, '/api/logout')
 
 
 if __name__ == '__main__':
