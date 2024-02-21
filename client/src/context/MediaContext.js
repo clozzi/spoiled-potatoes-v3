@@ -1,12 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
-const MediaContext = createContext({})
+const MediasContext = createContext([])
 
-function MediaProvider({ children }) {
+function MediasProvider({ children }) {
     const [medias, setMedias] = useState([])
 
     useEffect(() => {
-        fetch("/medias")
+        fetch("/api/medias")
           .then((r) => r.json())
           .then((data) => setMedias(data))
       }, [])
@@ -15,7 +15,7 @@ function MediaProvider({ children }) {
     setMedias([...medias, newMediaObj])
     }
 
-    return <MediaContext.Provider value={{medias, handleNewMedia}}>{ children }</MediaContext.Provider>
+    return <MediasContext.Provider value={{medias, handleNewMedia}}>{ children }</MediasContext.Provider>
 }
 
-export { MediaContext, MediaProvider }
+export { MediasContext, MediasProvider }

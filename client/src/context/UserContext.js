@@ -1,22 +1,22 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const UserContext = createContext({})
 
 function UserProvider({ children }) {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState("null")
     const [loggedIn, setLoggedIn] = useState(false)
 
-    useEffect(() => {
-        fetch("/check_session").then((r) => {
-          if (r.status === 200) {
-            r.json().then((data) => {
-              login(data)
-            })
-          } else {
-            alert('Login failed!')
-          }
-        })
-      }, [])
+    // useEffect(() => {
+    //     fetch("/api/check_session").then((r) => {
+    //       if (r.status === 200) {
+    //         r.json().then((data) => {
+    //           login(data)
+    //         })
+    //       } else {
+    //         alert('Login failed!')
+    //       }
+    //     })
+    //   }, [])
 
     function login(user) {
         setUser(user)
