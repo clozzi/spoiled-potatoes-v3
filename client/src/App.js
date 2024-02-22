@@ -13,7 +13,6 @@ function App() {
       <UserProvider>
         <MediasProvider>
           <NavBar />
-          <h1>Welcome!</h1>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />

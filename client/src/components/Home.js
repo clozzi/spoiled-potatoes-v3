@@ -8,7 +8,7 @@ function Home() {
 
     return (
         <>
-        <h1>Home Page {user}</h1>
+        <h1>{user ? (<>Welcome back, {user.username}</>) : (<>Welcome to Spoiled Potatoes!</>)}</h1>
         {medias.map((media) => (
             <div className="medias" key={media.id} >
                 <img src={media.image_url} alt="media" width="100" height="100" className="mediaImage"/>
