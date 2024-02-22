@@ -12,7 +12,7 @@ function MediasProvider({ children }) {
       }, [])
 
     function handleNewMedia(newMediaObj) {
-    setMedias([...medias, newMediaObj])
+      setMedias([...medias, newMediaObj])
     }
 
     return <MediasContext.Provider value={{medias, handleNewMedia}}>{ children }</MediasContext.Provider>
