@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Media from './components/Media';
 import CreateMedia from './components/CreateMedia';
+import SearchMedia from './components/SearchMedia';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/medias/:id" element={<Media />} />
             <Route path="/create" element={<CreateMedia />} />
+            <Route path="/search_media" element={<SearchMedia />} />
           </Routes>
         </MediasProvider>
       </UserProvider>
