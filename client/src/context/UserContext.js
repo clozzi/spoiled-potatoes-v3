@@ -1,11 +1,9 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext({})
 
 function UserProvider({ children }) {
     const [user, setUser] = useState(null)
-    const navigate = useNavigate()
 
     useEffect(() => {
         fetch("/api/check_session")

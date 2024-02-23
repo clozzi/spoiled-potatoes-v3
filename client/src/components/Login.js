@@ -2,9 +2,11 @@ import { useFormik } from "formik";
 import { useContext } from "react";
 import * as yup from "yup";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const { login } = useContext(UserContext)
+    const navigate = useNavigate()
 
     const formSchema = yup.object().shape({
         username: yup.string().required("Must enter username").max(20),
@@ -27,7 +29,7 @@ function Login() {
             })
             .then((r) => {
                 if (r.status === 200) {
-                    r.json().then((data) => login(data))
+                    r.json().then((data) => login(data), navigate('/'))
                 } else {
                     alert('Incorrect username or password')
                 }})
