@@ -7,14 +7,14 @@ function UserReviews() {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-            fetch(`/api/user_reviews/${id}`)
-            .then((r) => {
-                if (r.status === 200) {
-                    r.json().then(data => setReviews(data))
-                } else {
-                    console.log('Retrieval unsuccessful')
-                }
-            })
+        fetch(`/api/user_reviews/${id}`)
+        .then((r) => {
+            if (r.status === 200) {
+                r.json().then(data => setReviews(data))
+            } else {
+                console.log('Retrieval unsuccessful')
+            }
+        })
     }, [id])
 
     function handleDeleteReview(id) {
@@ -44,7 +44,8 @@ function UserReviews() {
 
     return (
         <>
-            {reviews ? (
+        <h3>My Reviews</h3>
+            {reviews.length > 0 ? (
                 reviews.map((review) => (
                     <div className="userReviews" key={review.id} >
                         <p>Rating: {review.rating}</p>
