@@ -55,7 +55,6 @@ function UserReviews() {
                         <p>Media Type: {review.media.media_type}</p>
                         <EditReview review={review} onUpdateReview={handleUpdateReview} />
                         <button onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
-                        {/* <DeleteReview review={review} onDeleteReview={handleDeleteReview} /> */}
                     </div>)
             )) : (
                 <p>No Reviews Yet!</p>
