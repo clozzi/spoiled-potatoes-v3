@@ -1,17 +1,12 @@
-import { useState, useEffect, useContext } from "react"
-// import EditReview from "./EditReview"
-// import DeleteReview from "./DeleteReview"
-import { UserContext } from "../context/UserContext"
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
 
 function UserReviews() {
-    const { user } = useContext(UserContext)
-
+    const { id } = useParams()
     const [reviews, setReviews] = useState([])
-    
 
     useEffect(() => {
-        console.log(user)
-        fetch(`/api/user_reviews/${user.id}`)
+            fetch(`/api/user_reviews/${id}`)
             .then((r) => {
                 if (r.status === 200) {
                     r.json().then(data => setReviews(data))
@@ -19,7 +14,7 @@ function UserReviews() {
                     console.log('Retrieval unsuccessful')
                 }
             })
-    }, [user])
+    }, [id]) 
 
     return (
         <>
