@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 function NavBar() {
@@ -20,7 +20,7 @@ function NavBar() {
                     <>
                         <p className="greeting">You are logged in as: {user.username}</p>
                         <button className="logoutButton" onClick={handleLogout}>Logout</button>
-                        {/* <NavLink to="/create" className="nav-link">Create New Media</NavLink> */}
+                        <NavLink to="/create" className="nav-link">Create New Media</NavLink>
                         {/* <NavLink to={`/user_reviews/${user.id}`} className="nav-link">My Reviews</NavLink> */}
                     </>
                 ) : (

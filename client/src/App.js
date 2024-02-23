@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Media from './components/Media';
+import CreateMedia from './components/CreateMedia';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/medias/:id" element={<Media />} />
+            <Route path="/create" element={<CreateMedia />} />
           </Routes>
         </MediasProvider>
       </UserProvider>
