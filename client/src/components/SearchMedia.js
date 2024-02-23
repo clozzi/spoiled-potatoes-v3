@@ -16,7 +16,7 @@ function SearchMedia() {
 
     return (
         <>
-            <h3>Search for Media</h3>
+            <h2>Search for Media</h2>
             <div className="search">
                 <input 
                 type="text" 

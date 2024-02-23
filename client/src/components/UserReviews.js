@@ -44,7 +44,7 @@ function UserReviews() {
 
     return (
         <>
-        <h3>My Reviews</h3>
+        <h2>My Reviews</h2>
             {reviews.length > 0 ? (
                 reviews.map((review) => (
                     <div className="userReviews" key={review.id} >

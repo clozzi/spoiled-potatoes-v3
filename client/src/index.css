@@ -5,6 +5,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background-image: url('potatoes-411975_1280.jpg');
 }
 
 code {
@@ -12,16 +13,22 @@ code {
     monospace;
 }
 
+h2 {
+  background-color: #ffd699;
+}
+
 .medias {
   border-style: groove;
   padding: 15px;
   display: inline-block;
+  background-color: #ffd699;
 }
 
 .userReviews {
   border-style: groove;
   padding: 15px;
   display: inline-grid;
+  background: #ffd699;
 }
 
 .mediaImage {
@@ -35,7 +42,7 @@ code {
   box-sizing: border-box;
   padding: 5px;
   margin: 0 6px 6px;
-  background: burlywood;
+  background: #ffd699;
   text-decoration: none;
   text-align: center;
   font-size: min(10vw, 15px) ;
@@ -43,7 +50,7 @@ code {
 }
 
 .active {
-  color: green;
+  color: red;
 }
 
 .greeting {
@@ -77,6 +84,10 @@ code {
 
 .createReview {
   border-style: dashed;
+}
+
+.createMedia {
+  background: #ffd699;
 }
 
 .hiddenInput {

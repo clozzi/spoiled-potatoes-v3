@@ -29,7 +29,7 @@ function NavBar() {
                         <NavLink to="/login" className="nav-link">Login</NavLink> 
                     </> 
                 )} 
-                <NavLink to="/search_media" className="nav-link">Search for Media</NavLink>
+                <NavLink to="/search_media" className="nav-link">Search the Potatobase</NavLink>
             </div>
         </nav>
     )

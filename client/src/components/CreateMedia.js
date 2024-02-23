@@ -40,7 +40,8 @@ function CreateMedia() {
 
     return (
         <div>
-            <h3>Contribute to the Spoiled Potatoes Community!</h3>
+            <h2>Contribute to the Spoiled Potatoes Community!</h2>
+            <div className="createMedia">
             {user ? (
                 <form onSubmit={formik.handleSubmit} style={{ margin: "30px" }}>
                 <div>
@@ -130,7 +131,7 @@ function CreateMedia() {
             ) : (
                 <h3>You must be logged in to contribute</h3>
             )}
-            
+            </div>
         </div>
     )
 }
