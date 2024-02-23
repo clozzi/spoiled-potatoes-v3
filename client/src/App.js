@@ -10,6 +10,7 @@ import Media from './components/Media';
 import CreateMedia from './components/CreateMedia';
 import SearchMedia from './components/SearchMedia';
 import UserReviews from './components/UserReviews';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/create" element={<CreateMedia />} />
             <Route path="/search_media" element={<SearchMedia />} />
             <Route path="/user_reviews/:id" element={<UserReviews />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </MediasProvider>
       </UserProvider>
