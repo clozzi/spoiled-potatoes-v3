@@ -6,11 +6,10 @@ function NavBar() {
     const { user, logout } = useContext(UserContext)
     
     function handleLogout() {
-        fetch("/logout", {
+        fetch("/api/logout", {
             method: "DELETE",
-        }).then(() => {
-            logout()
         })
+        logout()
         }
 
     return (

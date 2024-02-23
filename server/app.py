@@ -171,14 +171,16 @@ class CheckSession(Resource, SerializerMixin):
         if id:
             user = User.query.filter_by(id=id).first()
             return user.to_dict(), 200
-        return {'error': 'Not logged in'}, 401
+        return {}, 204
 
 
 class Logout(Resource, SerializerMixin):
 
     def delete(self):
-        session['user_id'] = None
-        return {'message': 'Successfully logged out'}, 204
+        if session.get('user_id'):
+            del session['user_id']
+            return {'message': 'Successfully logged out'}, 200
+        return {'error': 'You are already logged out'}, 401
     
 api.add_resource(Home, '/')
 api.add_resource(Medias, '/api/medias')
