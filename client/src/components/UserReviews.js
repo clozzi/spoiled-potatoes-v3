@@ -57,7 +57,7 @@ function UserReviews() {
                         <button onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
                     </div>)
             )) : (
-                <p>No Reviews Yet!</p>
+                <h2>No Reviews Yet!</h2>
             )}
       </>  
     )
