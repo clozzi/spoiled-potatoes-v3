@@ -1,5 +1,5 @@
 # Spoiled Potatoes 
-#### A completely unique media review platform!
+#### A completely, totally, definitely unique media review platform!
 
 - Find out what people think of your favorite movies or series
 - Users can add a movie or series to the potatobase
@@ -12,7 +12,7 @@
 
 ## Installation
 
-Clone the repo before anything.
+Start by cloning the repo.
 
 To install the python dependencies and run the server, ensure you change into the server directory:
 
@@ -34,7 +34,7 @@ npm start
 
 ## Usage
 
-- insert GIF here
+![GIF of usage starting with signup, and including creating a review and a media](client/src/SpoiledPotatoesGIF.gif)
 
 ## Acknowledgments
 
