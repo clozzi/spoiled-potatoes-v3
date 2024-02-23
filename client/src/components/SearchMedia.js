@@ -1,67 +1,48 @@
 import { useContext, useState } from "react"
 import { MediasContext } from "../context/MediasContext"
 import { UserContext } from "../context/UserContext"
+import { NavLink } from "react-router-dom"
 
 function SearchMedia() {
     const { medias } = useContext(MediasContext)
     const { user } = useContext(UserContext)
-    const [titleInput, setTitleInput] = useState("")
+    const [searchInput, setSearchInput] = useState("")
     const [searchResults, setSearchResults] = useState([])
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        const filteredResults = medias.filter((media) => {
-            return media.title.includes(titleInput)
-        })
-        if (filteredResults.length >= 1) {
-            setSearchResults(filteredResults)
-        } else {
-            setSearchResults([])
-        }
+    function handleSearch() {
+        const filteredMedias = medias.filter((media) => media.title.toLowerCase().includes(searchInput.toLowerCase()))
+        setSearchResults(filteredMedias)
     }
-    
-    const displayResults = searchResults.map((media) => (
-        <div className="medias" key={media.id} >
-            <img src={media.image_url} alt="media" width="100" height="100" className="mediaImage"/>
-            <h3>{media.title}</h3>
-            <h5>{media.media_type}</h5>
-            <h5>Streaming on: {media.streaming_platform}</h5>
-            {user ? (
-                <div>
-                    {media.reviews.map((review) => (
-                    <div key={review.id}>
-                        <p>Rating: {review.rating}</p>
-                        <p>Explanation:{review.comment}</p>
-                        <p>User: {review.user.username}</p>
-                    </div>
-                    ))}
-                </div>
-            ) : (
-                <p>Log in to see reviews</p>
-            )}
-        </div>
-    ))
 
     return (
         <>
             <h3>Search for Media</h3>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="title">Media Title: </label>
+            <div className="search">
                 <input 
-                    id="title" 
-                    name="title" 
-                    type="text" 
-                    placeholder="Enter Media Title..."
-                    value={titleInput}
-                    onChange={(e) => setTitleInput(e.target.value)}
+                type="text" 
+                id="searchInput" 
+                onChange={(e) => setSearchInput(e.target.value)} 
+                value={searchInput} 
+                placeholder="Enter media title..."
                 />
-                <button type="submit">Search</button>
-            </form>
-            {searchResults.length !== 0 ? (
-                <div>Results: {displayResults}</div>
-            ) : (
-                <p>No Results Found</p>
-            )}
+                <button type="submit" onClick={handleSearch}>Search</button>
+            </div>
+            
+            {searchResults ? (
+                searchResults.map((media) => (
+                    <div className="medias" key={media.id} >
+                        <img src={media.image_url} alt="media" width="100" height="100" className="mediaImage"/>
+                        <h3>{media.title}</h3>
+                        <h5>{media.media_type}</h5>
+                        <h5>Streaming on: {media.streaming_platform}</h5>
+                        {user ? (
+                        <NavLink to={`/medias/${media.id}`} className="nav-link">Click for more information</NavLink>
+                        ) : (
+                        <p>Log in to see Reviews</p>
+                        )}
+                    </div>
+                ))
+            ) : null}
         </>
     )
 }
