@@ -20,9 +20,9 @@ To install the python dependencies and run the server, ensure you change into th
 cd server
 pipenv install
 pipenv shell
-python seed.py --optional reseed of database
 python app.py
 ```
+Prior to running the backend, you can optionally run 'python seed.py' to reseed the potatobase.
 
 To install React dependencies and execute the frontend script, change into the client directory first:
 
