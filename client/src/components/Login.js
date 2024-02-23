@@ -25,10 +25,14 @@ function Login() {
                 },
                 body: JSON.stringify(values, null, 2),
             })
-                .then((r) => r.json())
-                .then((data) => login(data))
-        }
-    })
+            .then((r) => {
+                if (r.status === 201) {
+                    r.json().then((data) => login(data))
+                } else {
+                    alert('Incorrect username or password')
+                }})
+    }
+})
 
     return (
         <div>
