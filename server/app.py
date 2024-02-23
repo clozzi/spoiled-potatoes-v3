@@ -1,5 +1,5 @@
 
-from flask import request, session, make_response
+from flask import request, session, make_response, jsonify
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy_serializer import SerializerMixin
@@ -121,6 +121,15 @@ class ReviewById(Resource, SerializerMixin):
             db.session.commit()
 
             return {'message': 'Review {id} deleted'}, 200
+        
+class ReviewByUserId(Resource, SerializerMixin):
+
+    def get(self, id):
+        reviews = [review.to_dict() for review in Review.query.filter(Review.user_id == id).all()]
+        
+        if reviews:
+            return reviews, 200
+        return {'error': '404 Resource not found'}, 404
     
 
 class Signup(Resource, SerializerMixin):
@@ -187,6 +196,7 @@ api.add_resource(Medias, '/api/medias')
 api.add_resource(MediaById, '/api/medias/<int:id>')
 api.add_resource(Reviews, '/api/reviews')
 api.add_resource(ReviewById, '/api/reviews/<int:id>')
+api.add_resource(ReviewByUserId, '/api/user_reviews/<int:id>')
 api.add_resource(Signup, '/api/signup')
 api.add_resource(Login, '/api/login')
 api.add_resource(CheckSession, '/api/check_session')
