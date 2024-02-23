@@ -4,7 +4,6 @@ const UserContext = createContext({})
 
 function UserProvider({ children }) {
     const [user, setUser] = useState(null)
-    // const [loggedIn, setLoggedIn] = useState(false)
 
     useEffect(() => {
         fetch("/api/check_session")
@@ -17,12 +16,10 @@ function UserProvider({ children }) {
 
     function login(user) {
         setUser(user)
-        // setLoggedIn(true)
     }
 
     function logout() {
         setUser(null)
-        // setLoggedIn(false)
     }
 
     return <UserContext.Provider value={{user, login, logout}}>{ children }</UserContext.Provider>
