@@ -17,6 +17,20 @@ function UserReviews() {
             })
     }, [id])
 
+    function handleDeleteReview(id) {
+        fetch(`/api/reviews/${id}`, {
+            method: "DELETE",
+        })
+        .then((r) => {
+            if (r.status === 200) {
+                const updatedReviews = reviews.filter((review) => review.id !== id)
+                setReviews(updatedReviews)
+            } else {
+                alert('Delete unsuccessful')
+            }
+        })
+    }
+
     function handleUpdateReview(updatedReview) {
         const updatedReviews = reviews.map((review) => {
             if (review.id === updatedReview.id) {
@@ -39,6 +53,7 @@ function UserReviews() {
                         <p>Media Title: {review.media.title}</p>
                         <p>Media Type: {review.media.media_type}</p>
                         <EditReview review={review} onUpdateReview={handleUpdateReview} />
+                        <button onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
                         {/* <DeleteReview review={review} onDeleteReview={handleDeleteReview} /> */}
                     </div>)
             )) : (
