@@ -1,4 +1,5 @@
-# Spoiled Potatoes --A completely unique media review platform!
+# Spoiled Potatoes 
+#### A completely unique media review platform!
 
 - Find out what people think of your favorite movies or series
 - Users can add a movie or series to the potatobase
