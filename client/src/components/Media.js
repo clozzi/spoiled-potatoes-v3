@@ -15,7 +15,7 @@ function Media() {
             if (r.status === 200) {
                 r.json().then((data) => setMedia(data))
             } else {
-                alert('Could not create user')
+                console.log('error retrieving data')
             }})
     }, [id])
 
