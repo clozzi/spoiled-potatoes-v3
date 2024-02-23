@@ -1,11 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../context/UserContext";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MediasContext } from "../context/MediasContext";
+import CreateReview from "./CreateReview";
 
 
 function Media() {
-    const { user } = useContext(UserContext)
     const { id } = useParams()
     const [media, setMedia] = useState({})
     const [reviews, setReviews] = useState([])
@@ -35,7 +33,7 @@ function Media() {
                     <h3>{media.title}</h3>
                     <h5>{media.media_type}</h5>
                     <h5>Streaming on: {media.streaming_platform}</h5>
-                    {/* <CreateReview media={media} user={user} onCreateReview={handleCreateReview} /> */}
+                    <CreateReview media={media} onCreateReview={handleCreateReview} />
                     <div>
                         {reviews.map((review) => (
                             <div key={review.id}>
