@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import EditReview from "./EditReview"
 
 function UserReviews() {
     const { id } = useParams()
@@ -14,7 +15,18 @@ function UserReviews() {
                     console.log('Retrieval unsuccessful')
                 }
             })
-    }, [id]) 
+    }, [id])
+
+    function handleUpdateReview(updatedReview) {
+        const updatedReviews = reviews.map((review) => {
+            if (review.id === updatedReview.id) {
+                return updatedReview
+            } else {
+                return review
+            }
+        })
+        setReviews(updatedReviews)
+    }
 
     return (
         <>
@@ -26,7 +38,7 @@ function UserReviews() {
                         <img src={review.media.image_url} alt="media" width="100" height="100" className="mediaImage"/>
                         <p>Media Title: {review.media.title}</p>
                         <p>Media Type: {review.media.media_type}</p>
-                        {/* <EditReview review={review} onUpdateReview={handleUpdateReview} /> */}
+                        <EditReview review={review} onUpdateReview={handleUpdateReview} />
                         {/* <DeleteReview review={review} onDeleteReview={handleDeleteReview} /> */}
                     </div>)
             )) : (
