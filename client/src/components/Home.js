@@ -17,7 +17,7 @@ function Home() {
                 <h5>{media.media_type}</h5>
                 <h5>Streaming on: {media.streaming_platform}</h5>
                 {user ? (
-                <NavLink to={`/medias/${media.id}`} className="nav-link">Click for more information</NavLink>
+                <NavLink to={`/medias/${media.id}`} className="mediaDetail">Click for more information</NavLink>
                 ) : (
                 <p>Log in to see Reviews</p>
                 )}

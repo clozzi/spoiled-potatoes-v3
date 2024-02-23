@@ -30,8 +30,8 @@ function EditReview({ review, onUpdateReview }) {
     })
 
     return (
-        <div>
-            <form className="edit-review" onSubmit={formik.handleSubmit}>
+        <div className="editReview">
+            <form onSubmit={formik.handleSubmit}>
                 <div>
                     <label>Select New Rating:</label>
                     <input 

@@ -30,7 +30,6 @@ function Media() {
     return (
         <>
             <h3>Media Details</h3>
-            <hr/>
             <div className="media" key={media.id} >
                 <img src={media.image_url} alt="media" width="100" height="100"/>
                 <h3>{media.title}</h3>
@@ -39,7 +38,7 @@ function Media() {
                 <CreateReview media={media} onCreateReview={handleCreateReview} />
                 <div>
                     {reviews.map((review) => (
-                        <div key={review.id}>
+                        <div key={review.id} className="reviews">
                         <p>Rating: {review.rating}</p>
                         <p>Explanation:{review.comment}</p>
                         <p>User: {review.user.username}</p>
