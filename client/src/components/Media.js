@@ -11,11 +11,15 @@ function Media() {
 
     useEffect(() => {
         fetch(`/api/medias/${id}`)
-            .then((r) => r.json())
-            .then((data) => {
-                setMedia(data)
-            })
+        .then((r) => {
+            if (r.status === 200) {
+                r.json().then((data) => setMedia(data))
+            } else {
+                alert('Could not create user')
+            }})
     }, [id])
+
+    
 
     return (
         <h1>{media.title}</h1>
