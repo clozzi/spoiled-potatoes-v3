@@ -25,6 +25,9 @@ class Medias(Resource, SerializerMixin):
     
     def post(self):
 
+        if not session['user_id']:
+            return {'error': 'Unauthorized'}, 401
+
         request_json = request.get_json()
         media_type = request_json.get('media_type')
         streaming_platform = request_json.get('streaming_platform')
@@ -67,6 +70,10 @@ class Reviews(Resource, SerializerMixin):
         return reviews, 200
     
     def post(self):
+
+        if not session['user_id']:
+            return {'error': 'Unauthorized'}, 401
+        
         request_json = request.get_json()
         rating = request_json.get('rating')
         comment = request_json.get('comment')
@@ -93,6 +100,10 @@ class Reviews(Resource, SerializerMixin):
 class ReviewById(Resource, SerializerMixin):
 
     def patch(self, id):
+
+        if not session['user_id']:
+            return {'error': 'Unauthorized'}, 401
+        
         review = Review.query.filter_by(id = id).first()
 
         if review:
@@ -107,6 +118,10 @@ class ReviewById(Resource, SerializerMixin):
         return {'error': '404 Resource not found'}, 404
     
     def delete(self, id):
+        
+        if not session['user_id']:
+            return {'error': 'Unauthorized'}, 401
+        
         review = Review.query.filter_by(id = id).first()
 
         if review:
