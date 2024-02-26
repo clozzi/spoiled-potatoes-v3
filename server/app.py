@@ -8,13 +8,6 @@ from config import app, db, api
 from models import Media, User, Review
 
 
-@app.before_request
-def check_if_logged_in():
-    allowed = ['api/medias']
-    if request.endpoint not in allowed and not session.get('user_id'):
-        return {'error': 'Unauthorized'}, 401
-
-
 class Home(Resource, SerializerMixin):
 
     def get(self):
@@ -192,7 +185,7 @@ class Logout(Resource, SerializerMixin):
         return {'error': 'You are already logged out'}, 401
     
 api.add_resource(Home, '/')
-api.add_resource(Medias, '/api/medias', endpoint='api/medias')
+api.add_resource(Medias, '/api/medias')
 api.add_resource(MediaById, '/api/medias/<int:id>')
 api.add_resource(Reviews, '/api/reviews')
 api.add_resource(ReviewById, '/api/reviews/<int:id>')

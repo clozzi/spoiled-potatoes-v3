@@ -14,13 +14,15 @@ if __name__ == '__main__':
         Review.query.delete()
 
         medias = []
+        media_types = ['Movie', 'Series']
+        platforms = ['HBO', 'Hulu', 'Netflix', 'Prime', 'Peacock']
         users = []
         reviews = []
 
         for i in range(15):
             media = Media(
-                media_type = 'Movie',
-                streaming_platform = 'HBO',
+                media_type = rc(media_types),
+                streaming_platform = rc(platforms),
                 title = fake.unique.name(),
                 image_url = 'https://cdn.pixabay.com/photo/2017/03/15/21/17/potato-2147541_640.png',
             )
