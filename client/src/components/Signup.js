@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { UserContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
+
 function Signup() {
     const { login } = useContext(UserContext)
     const navigate = useNavigate()
@@ -36,7 +37,6 @@ function Signup() {
         }
     })
     
-
     return (
         <div>
             <h3>Sign Up Now!</h3>

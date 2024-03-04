@@ -4,6 +4,7 @@ import * as yup from 'yup'
 import { UserContext } from "../context/UserContext"
 import { MediasContext } from "../context/MediasContext"
 
+
 function CreateMedia() {
     const { user } = useContext(UserContext)
     const { handleNewMedia } = useContext(MediasContext)

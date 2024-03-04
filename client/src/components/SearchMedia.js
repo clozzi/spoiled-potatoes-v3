@@ -3,6 +3,7 @@ import { MediasContext } from "../context/MediasContext"
 import { UserContext } from "../context/UserContext"
 import { NavLink } from "react-router-dom"
 
+
 function SearchMedia() {
     const { medias } = useContext(MediasContext)
     const { user } = useContext(UserContext)

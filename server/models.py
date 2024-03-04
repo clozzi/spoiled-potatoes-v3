@@ -2,7 +2,6 @@ from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import validates
 
-
 from config import db, bcrypt
 
 
@@ -46,7 +45,6 @@ class Media(db.Model, SerializerMixin):
 
     serialize_rules = ('-reviews.media',)
 
-
     @validates('media_type')
     def validate_type(self, key, media_type):
         media_types = ['Movie', 'Series']
@@ -69,7 +67,6 @@ class Media(db.Model, SerializerMixin):
             raise ValueError('Incorrect title length')
         return title
 
-    
     def __repr__(self):
         return f'<Media {self.title}, Type: {self.media_type}, Platform: {self.streaming_platform}'
     

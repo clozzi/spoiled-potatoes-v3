@@ -12,6 +12,7 @@ import SearchMedia from './components/SearchMedia';
 import UserReviews from './components/UserReviews';
 import ErrorPage from './components/ErrorPage';
 
+
 function App() {
   return (
     <main>
@@ -33,5 +34,6 @@ function App() {
     </main>
   );
 }
+
 
 export default App;

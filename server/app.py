@@ -1,5 +1,4 @@
-
-from flask import request, session, make_response, jsonify
+from flask import request, session
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy_serializer import SerializerMixin
@@ -130,6 +129,7 @@ class ReviewById(Resource, SerializerMixin):
 
             return {'message': 'Review {id} deleted'}, 200
         
+
 class ReviewByUserId(Resource, SerializerMixin):
 
     def get(self, id):
@@ -162,7 +162,6 @@ class Signup(Resource, SerializerMixin):
         except IntegrityError:
             return {'error': 'Could not create user'}, 422
     
-
 class Login(Resource, SerializerMixin):
 
     def post(self):
@@ -180,7 +179,6 @@ class Login(Resource, SerializerMixin):
                 return {'error': 'Incorrect Password'}
         return {'error': 'User not registered'}, 400
     
-
 class CheckSession(Resource, SerializerMixin):
 
     def get(self):
@@ -190,7 +188,6 @@ class CheckSession(Resource, SerializerMixin):
             return user.to_dict(), 200
         return {}, 204
 
-
 class Logout(Resource, SerializerMixin):
 
     def delete(self):
@@ -198,6 +195,7 @@ class Logout(Resource, SerializerMixin):
             del session['user_id']
             return {'message': 'Successfully logged out'}, 200
         return {'error': 'You are already logged out'}, 401
+    
     
 api.add_resource(Home, '/')
 api.add_resource(Medias, '/api/medias')

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const MediasContext = createContext([])
 
+
 function MediasProvider({ children }) {
     const [medias, setMedias] = useState([])
     const navigate = useNavigate()
@@ -20,5 +21,6 @@ function MediasProvider({ children }) {
 
     return <MediasContext.Provider value={{medias, handleNewMedia}}>{ children }</MediasContext.Provider>
 }
+
 
 export { MediasContext, MediasProvider }
