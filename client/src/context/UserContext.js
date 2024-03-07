@@ -34,18 +34,18 @@ function UserProvider({ children }) {
         setReviews(updatedReviews)
     }
 
-    // function handleUpdateReview(updatedReview) {
-    //     const updatedReviews = reviews.map((review) => {
-    //         if (review.id === updatedReview.id) {
-    //             return updatedReview
-    //         } else {
-    //             return review
-    //         }
-    //     })
-    //     setReviews(updatedReviews)
-    // }
+    function handleUpdateReview(updatedReview) {
+        const updatedReviews = reviews.map((review) => {
+            if (review.id === updatedReview.id) {
+                return updatedReview
+            } else {
+                return review
+            }
+        })
+        setReviews(updatedReviews)
+    }
 
-    return <UserContext.Provider value={{user, reviews, login, logout, handleDeleteReview, handleCreateReview }}>{ children }</UserContext.Provider>
+    return <UserContext.Provider value={{user, reviews, login, logout, handleDeleteReview, handleCreateReview, handleUpdateReview }}>{ children }</UserContext.Provider>
 }
 
 

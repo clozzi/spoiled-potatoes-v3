@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react"
+import { useContext } from "react"
 import EditReview from "./EditReview"
 import { UserContext } from "../context/UserContext"
 
@@ -26,7 +26,7 @@ function MyReviews() {
                         <img src={review.media.image_url} alt="media" width="100" height="100" className="mediaImage"/>
                         <p>Media Title: {review.media.title}</p>
                         <p>Media Type: {review.media.media_type}</p>
-                        {/* <EditReview review={review} onUpdateReview={handleUpdateReview} /> */}
+                        <EditReview review={review} />
                         <button onClick={() => deleteReview(review.id)}>Delete Review</button>
                     </div>)
             )) : (

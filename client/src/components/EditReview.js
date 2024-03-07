@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useFormik } from "formik";
+import { UserContext } from "../context/UserContext";
 
 
-function EditReview({ review, onUpdateReview }) {
+function EditReview({ review }) {
+    const { handleUpdateReview } = useContext(UserContext)
 
     const formik = useFormik({
         initialValues: {
@@ -20,7 +22,7 @@ function EditReview({ review, onUpdateReview }) {
                 .then((r) => {
                     if (r.status === 200) {
                         r.json().then((data) => {
-                            onUpdateReview(data)
+                            handleUpdateReview(data)
                             formik.values.rating = ""
                             formik.values.comment = ""
                         })
