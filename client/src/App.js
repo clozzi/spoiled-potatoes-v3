@@ -24,7 +24,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/medias/:id" element={<Media />} />
-            {/* medias/new */}
             <Route path="/medias/new" element={<CreateMedia />} />
             <Route path="/search_media" element={<SearchMedia />} />
             <Route path="/my_reviews" element={<MyReviews />} />
