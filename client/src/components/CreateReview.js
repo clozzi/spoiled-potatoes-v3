@@ -3,14 +3,13 @@ import { useContext } from "react"
 import { UserContext } from "../context/UserContext"
 
 
-function CreateReview({ media, onCreateReview }) {
-    const { user } = useContext(UserContext)
+function CreateReview({ media, onAddReview }) {
+    const { user, handleCreateReview } = useContext(UserContext)
 
     const formik = useFormik({
         initialValues: {
             rating: "",
             comment: "",
-            user_id: "",
             media_id: "",
         },
         onSubmit: (values) => {
@@ -22,14 +21,14 @@ function CreateReview({ media, onCreateReview }) {
                 body: JSON.stringify({
                     rating: values.rating,
                     comment: values.comment,
-                    user_id: user.id,
                     media_id: media.id
                 }),
             })
             .then((r) => {
                 if (r.status === 201) {
                     r.json().then((data) => {
-                        onCreateReview(data)
+                        handleCreateReview(data)
+                        onAddReview(data)
                         formik.values.rating = ""
                         formik.values.comment = ""
                     })

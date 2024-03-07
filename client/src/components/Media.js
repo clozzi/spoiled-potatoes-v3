@@ -23,7 +23,7 @@ function Media() {
         setReviews(media.reviews)
     }
 
-    function handleCreateReview(newReview) {
+    function handleAddReview(newReview) {
         setReviews([...reviews, newReview])
     }
 
@@ -35,7 +35,7 @@ function Media() {
                 <h3>{media.title}</h3>
                 <h5>{media.media_type}</h5>
                 <h5>Streaming on: {media.streaming_platform}</h5>
-                <CreateReview media={media} onCreateReview={handleCreateReview} />
+                <CreateReview media={media} onAddReview={handleAddReview} />
                 <div>
                     {reviews.map((review) => (
                         <div key={review.id} className="reviews">

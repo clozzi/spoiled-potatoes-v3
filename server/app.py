@@ -76,13 +76,12 @@ class Reviews(Resource, SerializerMixin):
         request_json = request.get_json()
         rating = request_json.get('rating')
         comment = request_json.get('comment')
-        user_id = request_json.get('user_id')
         media_id = request_json.get('media_id')
 
         review = Review(
             rating = rating,
             comment = comment,
-            user_id = user_id,
+            user_id = session['user_id'],
             media_id = media_id,
         )
 
@@ -124,10 +123,14 @@ class ReviewById(Resource, SerializerMixin):
         review = Review.query.filter_by(id = id).first()
 
         if review:
-            db.session.delete(review)
-            db.session.commit()
+            try:
+                db.session.delete(review)
+                db.session.commit()
 
-            return {'message': 'Review {id} deleted'}, 200
+                return {'message': 'Review {id} deleted'}, 200
+            except:
+                return {'error': 'Unable to delete'}
+        return {'error': 'No review found'}
     
 
 class Signup(Resource, SerializerMixin):

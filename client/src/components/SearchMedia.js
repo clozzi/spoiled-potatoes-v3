@@ -18,6 +18,7 @@ function SearchMedia() {
     return (
         <>
             <h2>Search for Media</h2>
+            <h3>Type in the title of a movie or series below</h3>
             <div className="search">
                 <input 
                 type="text" 

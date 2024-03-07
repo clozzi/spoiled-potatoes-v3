@@ -4,33 +4,21 @@ import { UserContext } from "../context/UserContext"
 
 
 function MyReviews() {
-    const [reviews, setReviews] = useState([])
-    const { user } = useContext(UserContext)
+    const { reviews, handleDeleteReview } = useContext(UserContext)
 
-    useEffect(() => {
-        setReviews(user.reviews)
-    }, [user.reviews])
-
-    function handleDeleteReview(id) {
-        const updatedReviews = reviews.filter((review) => review.id !== id)
-        setReviews(updatedReviews)
-    }
-
-    function handleUpdateReview(updatedReview) {
-        const updatedReviews = reviews.map((review) => {
-            if (review.id === updatedReview.id) {
-                return updatedReview
-            } else {
-                return review
-            }
+    function deleteReview(id) {
+        fetch(`/api/reviews/${id}`, {
+            method: "DELETE",
         })
-        setReviews(updatedReviews)
+        .then(res => res.json())
+        .then(res => console.log(res))
+        handleDeleteReview(id)
     }
 
     return (
         <>
         <h2>My Reviews</h2>
-            {reviews.length > 0 ? (
+            {reviews ? (
                 reviews.map((review) => (
                     <div className="userReviews" key={review.id} >
                         <p>Rating: {review.rating}</p>
@@ -38,8 +26,8 @@ function MyReviews() {
                         <img src={review.media.image_url} alt="media" width="100" height="100" className="mediaImage"/>
                         <p>Media Title: {review.media.title}</p>
                         <p>Media Type: {review.media.media_type}</p>
-                        <EditReview review={review} onUpdateReview={handleUpdateReview} />
-                        <button onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
+                        {/* <EditReview review={review} onUpdateReview={handleUpdateReview} /> */}
+                        <button onClick={() => deleteReview(review.id)}>Delete Review</button>
                     </div>)
             )) : (
                 <h2>No Reviews Yet!</h2>
