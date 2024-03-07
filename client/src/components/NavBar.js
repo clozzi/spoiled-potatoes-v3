@@ -21,8 +21,8 @@ function NavBar() {
                     <>
                         <p className="greeting">You are logged in as: {user.username}</p>
                         <button className="logoutButton" onClick={handleLogout}>Logout</button>
-                        <NavLink to="/create" className="nav-link">Create New Media</NavLink>
-                        <NavLink to={`/user_reviews/${user.id}`} className="nav-link">My Reviews</NavLink>
+                        <NavLink to="/medias/new" className="nav-link">Create New Media</NavLink>
+                        <NavLink to="/my_reviews" className="nav-link">My Reviews</NavLink>
                     </>
                 ) : (
                     <>

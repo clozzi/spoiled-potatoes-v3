@@ -9,7 +9,7 @@ import Signup from './components/Signup';
 import Media from './components/Media';
 import CreateMedia from './components/CreateMedia';
 import SearchMedia from './components/SearchMedia';
-import UserReviews from './components/UserReviews';
+import MyReviews from './components/MyReviews';
 import ErrorPage from './components/ErrorPage';
 
 
@@ -24,9 +24,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/medias/:id" element={<Media />} />
-            <Route path="/create" element={<CreateMedia />} />
+            {/* medias/new */}
+            <Route path="/medias/new" element={<CreateMedia />} />
             <Route path="/search_media" element={<SearchMedia />} />
-            <Route path="/user_reviews/:id" element={<UserReviews />} />
+            <Route path="/my_reviews" element={<MyReviews />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </MediasProvider>

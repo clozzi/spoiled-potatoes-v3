@@ -1,35 +1,19 @@
-import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useState, useEffect, useContext } from "react"
 import EditReview from "./EditReview"
+import { UserContext } from "../context/UserContext"
 
 
-function UserReviews() {
-    const { id } = useParams()
+function MyReviews() {
     const [reviews, setReviews] = useState([])
+    const { user } = useContext(UserContext)
 
     useEffect(() => {
-        fetch(`/api/user_reviews/${id}`)
-        .then((r) => {
-            if (r.status === 200) {
-                r.json().then(data => setReviews(data))
-            } else {
-                console.log('Retrieval unsuccessful')
-            }
-        })
-    }, [id])
+        setReviews(user.reviews)
+    }, [user.reviews])
 
     function handleDeleteReview(id) {
-        fetch(`/api/reviews/${id}`, {
-            method: "DELETE",
-        })
-        .then((r) => {
-            if (r.status === 200) {
-                const updatedReviews = reviews.filter((review) => review.id !== id)
-                setReviews(updatedReviews)
-            } else {
-                alert('Delete unsuccessful')
-            }
-        })
+        const updatedReviews = reviews.filter((review) => review.id !== id)
+        setReviews(updatedReviews)
     }
 
     function handleUpdateReview(updatedReview) {
@@ -65,4 +49,4 @@ function UserReviews() {
 }
 
 
-export default UserReviews
+export default MyReviews
