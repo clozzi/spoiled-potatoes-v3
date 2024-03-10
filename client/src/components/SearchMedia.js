@@ -18,7 +18,7 @@ function SearchMedia() {
     return (
         <>
             <h2>Search for Media</h2>
-            <h3>Type in the title of a movie or series below</h3>
+            <h2>Type a movie or series title below to search the potatobase!</h2>
             <div className="search">
                 <input 
                 type="text" 
@@ -30,7 +30,7 @@ function SearchMedia() {
                 <button type="submit" onClick={handleSearch}>Search</button>
             </div>
             
-            {searchResults ? (
+            {searchResults.length > 0 ? (
                 searchResults.map((media) => (
                     <div className="medias" key={media.id} >
                         <img src={media.image_url} alt="media" width="100" height="100" className="mediaImage"/>
@@ -44,7 +44,9 @@ function SearchMedia() {
                         )}
                     </div>
                 ))
-            ) : null}
+            ) : (
+                <h3>No Results Yet!</h3>
+            )}
         </>
     )
 }

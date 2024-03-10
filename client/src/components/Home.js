@@ -11,6 +11,7 @@ function Home() {
     return (
         <>
         <h2>{user ? (<>Welcome back, {user.username}!</>) : (<>Welcome to Spoiled Potatoes!</>)}</h2>
+        <h2>Spoiled Potatoes: The #1 online source for ratings of movies and series!</h2>
         {medias.map((media) => (
             <div className="medias" key={media.id}>
                 <img src={media.image_url} alt="media" width="100" height="100" className="mediaImage"/>
