@@ -5,13 +5,6 @@ import { UserContext } from "../context/UserContext";
 
 function NavBar() {
     const { user, logout } = useContext(UserContext)
-    
-    function handleLogout() {
-        fetch("/api/logout", {
-            method: "DELETE",
-        })
-        logout()
-        }
 
     return (
         <nav>
@@ -20,7 +13,7 @@ function NavBar() {
                 {user ? (
                     <>
                         <p className="greeting">You are logged in as: {user.username}</p>
-                        <button className="logoutButton" onClick={handleLogout}>Logout</button>
+                        <button className="logoutButton" onClick={logout}>Logout</button>
                         <NavLink to="/medias/new" className="nav-link">Create New Media</NavLink>
                         <NavLink to="/my_reviews" className="nav-link">My Reviews</NavLink>
                     </>

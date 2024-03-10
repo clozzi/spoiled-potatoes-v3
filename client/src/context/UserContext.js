@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext({})
 
@@ -6,6 +7,7 @@ const UserContext = createContext({})
 function UserProvider({ children }) {
     const [user, setUser] = useState(null)
     const [reviews, setReviews] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch("/api/check_session")
@@ -22,7 +24,11 @@ function UserProvider({ children }) {
     }
 
     function logout() {
+        fetch("/api/logout", {
+            method: "DELETE",
+        })
         setUser(null)
+        navigate('/')
     }
 
     function handleCreateReview(newReview) {
