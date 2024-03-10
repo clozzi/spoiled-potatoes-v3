@@ -67,16 +67,6 @@ function CreateReview({ media, onAddReview }) {
                     value={formik.values.comment}
                 />
             </div>
-            <div className="hiddenInput">
-                <label>Media ID:</label>
-                <input 
-                    type="hidden" 
-                    id="media_id"
-                    name="media_id"
-                    readOnly
-                    value={formik.values.media_id}
-                />
-            </div>
             <button type="submit">Submit New Review</button>
             </form>
             ) : (
