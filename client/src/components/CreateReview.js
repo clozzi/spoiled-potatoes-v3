@@ -68,16 +68,6 @@ function CreateReview({ media, onAddReview }) {
                 />
             </div>
             <div className="hiddenInput">
-                <label>User ID:</label>
-                <input 
-                    type="hidden" 
-                    id="user_id"
-                    name="user_id"
-                    readOnly
-                    value={formik.values.user_id}
-                />
-            </div>
-            <div className="hiddenInput">
                 <label>Media ID:</label>
                 <input 
                     type="hidden" 
