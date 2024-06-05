@@ -18,12 +18,20 @@ h1, h2 {
   color: white;
 }
 
+.login-form, .signup-form {
+  background-color: #ffc266;
+  margin: auto;
+  width: 30%;
+  padding: 5px;
+  border: solid;
+}
+
 .medias {
   border-style: double;
   padding: 15px;
   margin: 1em;
   display: inline-block;
-  background-color: #ffd699;
+  background-color: #ffc266;
   border-radius: 16px;
   border-width: 7px;
   border-color: white;
@@ -34,30 +42,27 @@ h1, h2 {
 }
 
 .media {
-  background-color: #ffd699;
+  background-color: #ffc266;
+  margin: auto;
+  width: 75%;
+  border: solid;
+  padding: 10px;
 }
 
 .reviews {
+  margin: 5px;
   display: inline-grid;
   padding: 15px;
   border-style: double;
-  background-color: blanchedalmond;
+  background-color: #ffd699;
 }
 
-/* .userReviews {
-  border-style: outset;
-  padding: 15px;
-  display: inline-grid;
-  background: #ffd699;
-} */
 .userReviews {
   border-style: double;
   padding: 15px;
   margin: 1em;
   display: inline-block;
-  background-color: #ffd699;
-  /* background-image: linear-gradient(131.83deg, #FFFAFA 0%,     #FFF7F7 99.21%); */
-  /* box-shadow: 0 40px 80px blanchedalmond; */
+  background-color: #ffc266;
   border-radius: 16px;
   border-width: 7px;
   border-color: white;
@@ -138,13 +143,6 @@ nav.sticky .logo a {
     transition: all 0.4s ease;
   }
 
-
-
-
-/* .editReview {
-  padding: 15px;
-  border-style: ridge;
-} */
 .editReview {
   background-color: blanchedalmond;
   text-decoration: none;
@@ -161,10 +159,15 @@ nav.sticky .logo a {
 .createReview {
   border-style: ridge;
   background-color: blanchedalmond;
+  margin: auto;
+  width: 50%;
 }
 
 .createMedia {
-  background: #ffd699;
+  background: #ffc266;
+  margin: auto;
+  width: 50%;
+  border: solid;
 }
 
 .hiddenInput {

@@ -29,7 +29,7 @@ function Media() {
 
     return (
         <>
-            <h3>Media Details</h3>
+            <h1>Media Details</h1>
             <div className="media" key={media.id} >
                 <img src={media.image_url} alt="media" width="100" height="100"/>
                 <h3>{media.title}</h3>
@@ -39,9 +39,9 @@ function Media() {
                 <div>
                     {reviews.map((review) => (
                         <div key={review.id} className="reviews">
-                        <p>Rating: {review.rating}</p>
-                        <p>Explanation:{review.comment}</p>
-                        <p>User: {review.user.username}</p>
+                            <p><b>Rating:</b> {review.rating}</p>
+                            <p><b>Comment:</b> {review.comment}</p>
+                            <p><b>User:</b> {review.user.username}</p>
                         </div>
                     ))}
                 </div>

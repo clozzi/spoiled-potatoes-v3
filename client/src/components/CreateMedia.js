@@ -45,14 +45,13 @@ function CreateMedia() {
             <div className="createMedia">
             {user ? (
                 <form onSubmit={formik.handleSubmit} style={{ margin: "30px" }}>
-                <div>
-                     <p>Select a Media Type:</p>
-                     <input 
-                        name="media_type" 
-                        type="radio"
-                        id="Movie"
-                        value="Movie"
-                        onChange={formik.handleChange}
+                    <p><b>Select a Media Type:</b></p>
+                    <input 
+                    name="media_type" 
+                    type="radio"
+                    id="Movie"
+                    value="Movie"
+                    onChange={formik.handleChange}
                     />
                     <label >Movie</label>
                     <input 
@@ -63,9 +62,7 @@ function CreateMedia() {
                         onChange={formik.handleChange}
                     />
                     <label >Series</label>
-                </div>
-                <div>
-                    <p>Select a Streaming Platform:</p>
+                    <p><b>Select a Streaming Platform:</b></p>
                     <input 
                         name="streaming_platform" 
                         type="radio"
@@ -106,8 +103,7 @@ function CreateMedia() {
                         onChange={formik.handleChange}
                     />
                     <label >Peacock</label>
-                </div>
-                <div>
+                    <p><b>Enter Media Title: </b></p>
                     <input 
                         type="text" 
                         name="title" 
@@ -117,8 +113,7 @@ function CreateMedia() {
                         onChange={formik.handleChange}
                         value={formik.values.title}
                     />
-                </div>
-                <div>
+                    <p><b>Enter Image URL: </b></p>
                     <input 
                         type="url" 
                         name="image_url" 
@@ -126,7 +121,7 @@ function CreateMedia() {
                         onChange={formik.handleChange}
                         value={formik.values.image_url}
                     />
-                </div>
+                    <br />
                 <button type="submit">Submit New Media</button>
             </form>
             ) : (
