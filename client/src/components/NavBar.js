@@ -19,7 +19,7 @@ function NavBar() {
         <nav>
             <div className="nav-content">
                 <div className="logo">
-                    <a href="#">Spoiled Potatoes</a>
+                    <a href="/">Spoiled Potatoes</a>
                 </div>
                 {user ? (
                     <ul className="nav-links">

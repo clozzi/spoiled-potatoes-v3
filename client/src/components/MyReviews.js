@@ -17,15 +17,15 @@ function MyReviews() {
 
     return (
         <>
-        <h2>My Reviews</h2>
+        <h1>My Reviews</h1>
             {reviews ? (
                 reviews.map((review) => (
                     <div className="userReviews" key={review.id} >
-                        <p>Rating: {review.rating}</p>
-                        <p>Comment: {review.comment}</p>
+                        <p><b>Rating:</b> {review.rating}</p>
+                        <p><b>Comment:</b> {review.comment}</p>
                         <img src={review.media.image_url} alt="media" width="100" height="100" className="mediaImage"/>
-                        <p>Media Title: {review.media.title}</p>
-                        <p>Media Type: {review.media.media_type}</p>
+                        <p><b>Media Title:</b> {review.media.title}</p>
+                        <p><b>Media Type:</b> {review.media.media_type}</p>
                         <EditReview review={review} />
                         <button onClick={() => deleteReview(review.id)}>Delete Review</button>
                     </div>)

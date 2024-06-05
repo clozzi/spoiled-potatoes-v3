@@ -17,7 +17,7 @@ function SearchMedia() {
 
     return (
         <>
-            <h2>Search for Media</h2>
+            <h1>Search for Media</h1>
             <h2>Type a movie or series title below to search the potatobase!</h2>
             <div className="search">
                 <input 
@@ -38,14 +38,14 @@ function SearchMedia() {
                         <h5>{media.media_type}</h5>
                         <h5>Streaming on: {media.streaming_platform}</h5>
                         {user ? (
-                        <NavLink to={`/medias/${media.id}`} className="nav-link">Click for more information</NavLink>
+                        <NavLink to={`/medias/${media.id}`} className="mediaDetailLink">Click for more information</NavLink>
                         ) : (
                         <p>Log in to see Reviews</p>
                         )}
                     </div>
                 ))
             ) : (
-                <h3>No Results Yet!</h3>
+                <h2>No Results Yet!</h2>
             )}
         </>
     )

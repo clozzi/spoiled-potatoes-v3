@@ -41,7 +41,7 @@ function CreateMedia() {
 
     return (
         <div>
-            <h2>Contribute to the Spoiled Potatoes Community!</h2>
+            <h1>Contribute to the Spoiled Potatoes Community!</h1>
             <div className="createMedia">
             {user ? (
                 <form onSubmit={formik.handleSubmit} style={{ margin: "30px" }}>

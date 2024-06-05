@@ -36,7 +36,7 @@ function EditReview({ review }) {
         <div className="editReview">
             <form onSubmit={formik.handleSubmit}>
                 <div>
-                    <label>Select New Rating:</label>
+                    <label><b>Select New Rating: </b></label>
                     <input 
                         type="number" 
                         id="rating"
