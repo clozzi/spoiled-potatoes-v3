@@ -189,6 +189,18 @@ class Logout(Resource, SerializerMixin):
             return {'message': 'Successfully logged out'}, 200
         return {'error': 'You are already logged out'}, 401
     
+class UserReviews(Resource):
+    def get(self, n):
+        all_users = User.query.all()
+        users = []
+        for user in all_users:
+            if (len(user.reviews) >= n):
+                users.append(user)
+        return [user.to_dict() for user in users]
+
+# user that has x or more reviews
+api.add_resource(UserReviews, '/api/user_reviews/<int:n>')
+    
     
 api.add_resource(Home, '/')
 api.add_resource(Medias, '/api/medias')
