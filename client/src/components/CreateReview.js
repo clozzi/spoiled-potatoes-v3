@@ -41,7 +41,7 @@ function CreateReview({ media, onAddReview }) {
 
     return (
         <div className="createReview">
-            <h3>Create new review</h3>
+            <h3>Add review</h3>
             {user ? (
                 <form onSubmit={formik.handleSubmit} style={{ margin: "30px" }} id="newReview">
             <div>
