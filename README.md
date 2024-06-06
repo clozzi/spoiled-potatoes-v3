@@ -10,6 +10,10 @@
 - React/Javascript
 - Flask/Python
 
+## Deployed Using Render
+
+- [Spoiled Potatoes](https://spoiled-potatoes-v3.onrender.com/)
+
 ## Installation
 
 Start by cloning the repo.
