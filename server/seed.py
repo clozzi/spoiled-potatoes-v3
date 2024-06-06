@@ -9,9 +9,9 @@ if __name__ == '__main__':
     with app.app_context():
 
         print('Deleting...')
+        Review.query.delete()
         Media.query.delete()
         User.query.delete()
-        Review.query.delete()
 
         medias = []
         media_types = ['Movie', 'Series']
@@ -36,7 +36,7 @@ if __name__ == '__main__':
             user = User(
                 username = fake.unique.first_name(),
             )
-
+            user.password_hash='123'
             users.append(user)
         
         print('Creating Users...')

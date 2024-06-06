@@ -1,4 +1,4 @@
-from flask import request, session
+from flask import request, session, render_template
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy_serializer import SerializerMixin
@@ -7,10 +7,9 @@ from config import app, db, api
 from models import Media, User, Review
 
 
-class Home(Resource, SerializerMixin):
-
-    def get(self):
-        return {'message': 'Project Server'}
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("index.html")
 
 
 class Medias(Resource, SerializerMixin):
@@ -202,7 +201,6 @@ class UserReviews(Resource):
 api.add_resource(UserReviews, '/api/user_reviews/<int:n>')
     
     
-api.add_resource(Home, '/')
 api.add_resource(Medias, '/api/medias')
 api.add_resource(MediaById, '/api/medias/<int:id>')
 api.add_resource(Reviews, '/api/reviews')

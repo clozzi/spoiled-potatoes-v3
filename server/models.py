@@ -12,7 +12,7 @@ class User(db.Model, SerializerMixin):
     username = db.Column(db.String, unique=True)
     _password_hash = db.Column(db.String)
 
-    reviews = db.relationship('Review', back_populates='user')
+    reviews = db.relationship('Review', back_populates='user', cascade='all, delete-orphan')
 
     serialize_rules = ('-reviews.user', '-_password_hash',)
 
@@ -41,7 +41,7 @@ class Media(db.Model, SerializerMixin):
     title = db.Column(db.String)
     image_url = db.Column(db.String)
 
-    reviews = db.relationship('Review', back_populates='media')
+    reviews = db.relationship('Review', back_populates='media', cascade='all, delete-orphan')
 
     serialize_rules = ('-reviews.media',)
 
