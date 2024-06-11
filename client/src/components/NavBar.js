@@ -6,7 +6,7 @@ import { UserContext } from "../context/UserContext";
 function NavBar() {
     const { user, logout } = useContext(UserContext)
 
-    let nav = document.querySelector("nav")
+    let nav = document.getElementById("nav-bar")
         window.onscroll = function() {
             if (document.documentElement.scrollTop > 20) {
                 nav.classList.add("sticky")
@@ -16,7 +16,7 @@ function NavBar() {
         }
 
     return (
-        <nav>
+        <nav id="nav-bar">
             <div className="nav-content">
                 <div className="logo">
                     <a href="/">Spoiled Potatoes</a>
